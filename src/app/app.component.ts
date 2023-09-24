@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from 'src/service/auth.service';
+import { AppStorage } from 'src/service/storage.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'landlordmoni-admin';
+  title =''
+  sidebarExpanded: boolean = true;
+
+  constructor(
+  ){}
+
+
 }

@@ -1,0 +1,16 @@
+<div class="row d-flex vh-100">
+    <div class="col-2 pt-4 shadow-lg">
+        <app-nav></app-nav>
+
+    </div>
+    <div class="col-10 content" [ngClass]="{ 'sidebarExpanded': sidebarExpanded }">
+        <div *ngIf="errorMessage" [ngClass]="errorMessage?.status ? 'success': 'error'"> 
+            <img src="assets/icons/{{errorMessage.status?'check':'error'}}-img.svg" style="width: 20px; margin-right: 15px;"/>
+            {{errorMessage.message}} </div>
+        <div class="d-flex justify-content-end icons">
+            <i class="bi bi-bell"></i>
+            <i (click)="logout()" class="bi bi-box-arrow-right" style="color: #EA0621;"></i>
+        </div>
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -1,1 +1,168 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+@font-face {
+    font-family: 'inter';
+    src: url('./assets/fonts/Inter-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'inter-medium';
+    src: url('./assets/fonts/Inter-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'inter-bold';
+    src: url('./assets/fonts/Inter-Bold.ttf');
+}
+
+body {
+    font-family: 'inter';
+}
+
+.main {
+    background: #F1F6FF;
+
+    min-height: 100vh;
+}
+
+h1 {
+    color: #000;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    /* 48px */
+    letter-spacing: -0.5px;
+    font-family: 'inter-bold' !important;
+}
+
+h2 {
+    color: #000;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    /* 45px */
+    letter-spacing: -0.5px;
+    font-family: 'inter-bold' !important;
+}
+
+h3 {
+    color: #000;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+h5 {
+    color: #000;
+    font-family: 'inter-bold' !important;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    /* 24px */
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+.tfilter {
+    margin: 27px 0 24px 0
+}
+
+.thead_filter {
+    display: flex;
+}
+
+.filter {
+    margin-right: 52px;
+}
+
+.filter .title {
+    color: rgba(15, 10, 0, 0.60);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.filter .title .active {
+    color: #0F0A00;
+    font-weight: 700;
+}
+
+p {
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.5px;
+}
+
+::ng-deep .cdk-overlay-container {
+    /* Do you changes here */
+    position: fixed;
+    z-index: 1000;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.content .head__title {
+    margin-top: 16px;
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    /* 21px */
+    letter-spacing: -0.5px;
+
+}
+
+.content .head__val {
+    font-family: 'inter-medium' !important;
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    /* 21px */
+    letter-spacing: -0.5px;
+}
+
+::ng-deep {
+
+    .cdk-overlay-container,
+    .cdk-global-overlay-wrapper {
+        pointer-events: none;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    .cdk-overlay-container {
+        position: fixed;
+        z-index: 1000;
+    }
+
+    .cdk-overlay-pane {
+        position: absolute;
+        pointer-events: auto;
+        box-sizing: border-box;
+        z-index: 1000;
+        display: flex;
+        max-width: 100%;
+        max-height: 100%;
+        background: #fff;
+        margin: 40px 0 0 10px;
+    }
+}

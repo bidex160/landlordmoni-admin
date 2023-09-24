@@ -1,0 +1,86 @@
+<div class="container-fluid main d-flex flex-column">
+   <h3>Welcome back, {{authS?.currentUserValue?.first_name}}</h3>
+   <div class="d-flex" style="margin: 29px 0">
+    <div class="u-card">
+        <h1>Total users</h1>
+        <h2> {{ tenantsList?.length + landlordsList.length|number}} </h2>
+        <div class="chartm d-flex align-items-center">
+            <div class="chart">
+                <img src="assets/icons/upward-green.svg" />
+                <span>24% </span>
+            </div>
+            <span>From last month</span>
+        </div>
+    </div>
+    <div class="p-card">
+        <h1>Total property</h1>
+        <h2> {{ counts.totalProperty |number}} </h2>
+        <div class="chartm d-flex align-items-center">
+            <div class="chart">
+                <img src="assets/icons/downward-red.svg"/>
+                <span class="red">24% </span>
+            </div>
+            <span>From last month</span>
+        </div>
+    </div>
+   </div>
+<div class="parent" style="margin: 0 0 43px 0">
+    <div class="t-card" *ngFor="let chart of chartsData">
+        <h1>{{chart.label}}</h1>
+        <h2> {{chart.count|number}} </h2>
+        <div class="chartt d-flex align-items-center">
+            <div class="chart">
+                <img src="assets/icons/{{chart.upward ?  'upward-green' : 'downward-red'}}.svg" />
+                <span [ngClass]="{'red': !chart.upward}"> {{chart.percentage}} % </span>
+            </div>
+            <span>From last month</span>
+        </div>
+    </div>
+</div>
+   <div class="table-responsive">
+   <h3>All USERS</h3>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="full_name">
+        <th mat-header-cell *matHeaderCellDef> NAME </th>
+        <td mat-cell *matCellDef="let element"> {{element.full_name}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> EMAIL </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="mobile_number">
+        <th mat-header-cell *matHeaderCellDef> PHONE NUMBER </th>
+        <td mat-cell *matCellDef="let element"> {{element.mobile_number}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> TYPE </th>
+        <td mat-cell *matCellDef="let element">
+            <div class="{{element.user_role.user_role_label.toLowerCase()}}">
+                {{element.user_role.user_role_label}}</div>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> STATUS </th>
+        <td mat-cell *matCellDef="let element" (click)="viewUser(element)"> {{ getStatus(element)}}
+            <img src="assets/icons/arrow-right.svg" />
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator #paginator [length]="userMetrics?.total_users" [pageSizeOptions]="[10, 20, 30]" pageSize='10' showFirstLastButtons></mat-paginator>
+</div>
+</div>

@@ -1,0 +1,23 @@
+<div mat-dialog-title class="title">
+    <h1>{{title}}</h1>
+    <i mat-dialog-close class="bi bi-x"></i>
+</div>
+
+<div mat-dialog-content class="d-flex flex-column" style="position: relative;" [formGroup]="form" >
+    <label>Reasons</label>
+    <select name="reason_for_decline_title" id="reason_for_decline_title" formControlName="reason_for_decline_title">
+        <option *ngFor="let rs of reasons" [value]="rs">{{rs}}</option>
+
+    </select>
+    <label>More Information</label>
+    <textarea formControlName="more_information_for_decline" name="more_information_for_decline"></textarea>
+<app-loader color="accent" *ngIf="loading"></app-loader>
+
+</div>
+<div class="actions" mat-dialog-actions>
+    <button  mat-button mat-dialog-close>Cancel</button>
+    <button mat-button  cdkFocusInitial (click)="submit()">
+        <img src="assets/icons/in-reject-red.svg" />
+    Deactivate</button>
+</div>
+

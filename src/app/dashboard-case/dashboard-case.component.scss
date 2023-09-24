@@ -1,0 +1,34 @@
+.content {
+    background: #F1F6FF;
+    padding: 40px;
+}
+
+.content .icons {
+    padding-bottom: 60px;
+    align-items: center;
+}
+
+.content .icons i {
+    font-size: 24px;
+}
+
+.content .icons i:first-child {
+
+    margin-right: 40px;
+
+}
+
+.success{
+position: absolute;
+    left: 45%;
+    padding: 15px;
+    background:rgb(181, 214, 181);
+    color: #3CC13B;
+}
+.error{
+    position: absolute;
+        left: 45%;
+        padding: 15px;
+            background: rgba(227, 0, 0, 0.1);
+        color: #d13131;
+}

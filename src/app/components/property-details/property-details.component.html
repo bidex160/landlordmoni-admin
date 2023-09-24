@@ -1,0 +1,83 @@
+<div class="d-flex flex-column" *ngIf="propertyDetails">
+    <div class="back d-flex flex-column">
+        <img (click)="onBack()" src="assets/icons/in-arrow-back-blue.svg" />
+        <span>Date JOINED: {{propertyDetails?.property_host?.created_at|date:'medium'}}</span>
+    </div>
+    <div class="info">
+        <div class="d-flex">
+        <div class="info_l">
+            <span> {{getFirstAndLast()}} </span>
+        </div>
+        <div class="info_r">
+            <span>{{propertyDetails.property_host.full_name}}</span>
+            <div class="landlord">
+               Landlord
+            </div>
+        </div>
+    </div>
+        <div class="btns">
+            <ng-container *ngIf="isApproved">
+                <div class="butt reject" (click)="openDialog('Deactivate Account')">
+                    <img src="assets/icons/in-reject-red.svg" />
+                    Deactivate
+                </div>
+            </ng-container>
+            <ng-container *ngIf="!isDeclined && !isApproved">
+                <div class="butt reject" (click)="openDialog('Reject Account')">
+                    <img src="assets/icons/in-reject-red.svg" />
+                    Reject
+                </div>
+                <div  class="butt approve" (click)="approveAccount()">
+                    <img src="assets/icons/in-approve-white.svg" />
+                    Approve
+                </div>
+            </ng-container>
+        
+        </div>
+    </div>
+    <div class="details">
+        <div class="tab-content">
+            <h5>Property Details</h5>
+            <div class="row">
+                <div class="col-6">
+                    <div class="content">
+                        <div class="head__title">PROPERTY USE</div>
+                        <div class="head__val">{{propertyDetails.property_usage.property_usage_type_label}}</div>
+                    </div>
+                    <div class="content">
+                        <div class="head__title">RESIDENCE TYPE</div>
+                        <div class="head__val">{{propertyDetails.property_type.property_type_label}}</div>
+                    </div>
+                    <div class="content">
+                        <div class="head__title">STATUS</div>
+                        <div class="head__val">{{getStatus()}}</div>
+                    </div>
+
+                    <div class="content">
+                        <div class="head__title">RENT FEE</div>
+                        <div class="head__val">{{propertyDetails.property_amount|number}}</div>
+                    </div>
+                    <div class="content">
+                        <div class="head__title">DURATION</div>
+                        <div class="head__val">{{propertyDetails.property_amount_duration_in_month}} </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="content">
+                        <div class="head__title">ADDRESS</div>
+                        <div class="head__val">{{propertyDetails.property_address}}</div>
+                    </div>
+                    <div class="content">
+                        <div class="head__title">SERVICE CHARGE</div>
+                        <div class="head__val"> {{propertyDetails?.property_has_service_charge?'Yes, Applied':'Not Applied'}} </div>
+                    </div>
+                    <div class="content">
+                        <div class="head__title">Nickname</div>
+                        <div class="head__val"> {{propertyDetails?.property_host?.nick_name}}  </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

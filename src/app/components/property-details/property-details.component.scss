@@ -1,0 +1,129 @@
+.back img {
+    width: 32px;
+
+}
+
+.back span {
+    color: var(--black-black, #16171D);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: end;
+    margin-top: 4px;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    margin: 24px 0 0 0;
+}
+
+.info_l {
+    width: 70px;
+    height: 70px;
+    flex-shrink: 0;
+    background: #16171D;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+        color: #FFF !important;
+    }
+}
+
+.info_r {
+    margin-left: 12px;
+
+    span {
+        color: #000000 !important;
+    }
+
+}
+
+.info_r span,
+.info_l span {
+    font-family: 'inter-bold' !important;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    /* 48px */
+    letter-spacing: -0.5px;
+}
+
+.landlord {
+    border-radius: 20px;
+    background: #0D47A1;
+    display: flex;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+    color: #fff !important;
+    padding: 0 20px;
+    width: fit-content;
+}
+
+.tenant {
+    border-radius: 20px;
+    background: #B71C1C;
+    display: flex;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+    color: #fff !important;
+    padding: 0 20px;
+    width: fit-content;
+}
+.tab-content {
+    border-radius: 10px;
+    background: rgba(217, 217, 217, 0.30);
+    padding: 24px 30px;
+    margin-top: 23px;
+    padding-bottom: 80px;
+}
+h5 {
+    margin-bottom: 8px;
+}
+.btns {
+    display: flex;
+    height: fit-content;
+}
+
+.btns .butt:first-child {
+    margin-right: 14px
+}
+
+.butt {
+    border-radius: 4px;
+    height: 56px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+    /* 18.2px */
+}
+
+.butt img {
+    margin-right: 20px;
+}
+
+.reject {
+    background: rgba(227, 0, 0, 0.10);
+    color: #B71C1C;
+    ;
+}
+
+.approve {
+    background: #3CC13B;
+    color: #fff;
+}

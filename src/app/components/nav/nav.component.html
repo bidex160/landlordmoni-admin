@@ -1,0 +1,33 @@
+
+    <nav id="navbar-example3" class="navbar navbar-light bg-transparent flex-column align-items-stretch p-3">
+        <img src="assets/img/landlordmoni_logo.png" />
+        <nav class="nav nav-pills flex-column pt-4">
+            <a class="nav-link" [ngClass]="{ 'activenav':activeTab==='home'}" routerLink="/dashboard/home"
+                (click)="activeTab='home'">
+                <i class="bi bi-house-door"></i>Dashboard</a>
+            <a class="nav-link nav-head" [ngClass]="{ 'activenav':activeTab==='tenant'}" (click)="activeTab='tenant'"
+                routerLink="/dashboard/tenant">
+                <img src="assets/icons/persons-{{activeTab == 'tenant' ? 'active': 'outline'}}.svg" />Tenant</a>
+
+            <a class="nav-link nav-head" [ngClass]="{ 'activenav':activeTab==='landlord'}"
+                (click)="activeTab='landlord'" routerLink="/dashboard/landlord">
+                <img src="assets/icons/landlord-{{activeTab == 'landlord' ? 'active': 'outline'}}.svg" />Landlord</a>
+
+            <a class="nav-link nav-head" [ngClass]="{ 'activenav':activeTab==='property'}"
+                (click)="activeTab='property'" routerLink="/dashboard/property">
+                <img src="assets/icons/landlord-{{activeTab == 'property' ? 'active': 'outline'}}.svg" />Property</a>
+            <hr>
+            <a class="nav-link nav-head" [ngClass]="{ 'activenav':activeTab==='loan'}" (click)="activeTab='loan'"
+                routerLink="/dashboard/loan">
+                <img src="assets/icons/subscriptions-{{activeTab == 'loan' ? 'outline': 'outline'}}.svg" />Loan</a>
+
+            <a class="nav-link nav-head" [ngClass]="{ 'activenav':activeTab==='investments'}"
+                (click)="activeTab='investments'" routerLink="/dashboard/investments"><i class="bi bi-person"></i>
+                Investments</a>
+                <hr>
+
+            <a class="nav-link nav-head" [ngClass]="{ 'activenav':activeTab==='settings'}"
+                (click)="activeTab='settings'" routerLink="/dashboard/settings"><i class="bi bi-gear"></i> Settings</a>
+        </nav>
+    </nav>
+

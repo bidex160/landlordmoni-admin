@@ -1,0 +1,120 @@
+table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+tr.mat-row {
+    height: 65px !important;
+}
+
+tr {
+    border-color: #0f0d0038 !important;
+}
+
+th.mat-header-cell {
+    color: var(--gray-700, #5C5C61);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    /* 184.615% */
+    text-transform: uppercase;
+}
+
+td.mat-cell {
+    color: var(--primary-black-100, #0F0D00);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 150% */
+}
+
+.applied {
+    border-radius: 20px;
+    background: #0D47A1 !important;
+    display: flex;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    color: #fff !important;
+    padding: 1px 17px;
+}
+
+.notapplied {
+    border-radius: 20px;
+    background: #B71C1C;
+    display: flex;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    color: #fff !important;
+    padding: 1px 6px;
+}
+
+td.mat-cell:last-of-type,
+th.mat-header-cell:last-of-type {
+    padding-left: 40px;
+}
+
+td img {
+    margin-left: 25px;
+}
+
+th.mat-header-cell:first-of-type,
+td.mat-cell:first-of-type {
+    padding-left: 0 !important;
+}
+.mdc-data-table__cell:last-child,
+.mat-mdc-table .mat-mdc-header-cell:last-child {
+    text-align: center !important;
+}
+
+::ng-deep {
+
+    .cdk-overlay-container,
+    .cdk-global-overlay-wrapper {
+        pointer-events: none;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    .cdk-overlay-container {
+        position: fixed;
+        z-index: 1000;
+    }
+
+    .cdk-overlay-pane {
+        position: absolute;
+        pointer-events: auto;
+        box-sizing: border-box;
+        z-index: 1000;
+        display: flex;
+        max-width: 100%;
+        max-height: 100%;
+        background: #fff;
+        margin: 40px 0 0 10px;
+    }
+}
+
+.count {
+    margin-left: 6px;
+    display: flex;
+    padding: 3px 6px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 4.421px;
+    background: #A2A2A5;
+    color: #F3F3F4;
+    font-size: 11.053px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}

@@ -1,0 +1,266 @@
+<div class="d-flex flex-column">
+    <ng-container *ngIf="userDetails">
+    <div class="back d-flex flex-column" >
+        <img (click)="onBack()" src="assets/icons/in-arrow-back-blue.svg"/>
+        <span>Date JOINED: {{userDetails?.created_at|date:'medium'}}</span>
+    </div>
+    <div class="info">
+        <div class="d-flex">
+        <div class="info_l">
+            <span>{{userDetails?.first_name[0]}}{{userDetails?.last_name[0]}} </span>
+        </div>
+        <div class="info_r">
+            <span>{{userDetails?.full_name}}</span>
+            <div class="{{userDetails?.user_role.user_role_label.toLowerCase()}}">
+                {{userDetails?.user_role?.user_role_label}}
+            </div>
+        </div>
+        </div>
+       
+      <div class="btns">
+        <ng-container *ngIf="isActive">
+            <div class="butt reject"  (click)="openDialog('Deactivate Account')">
+                <img src="assets/icons/in-reject-red.svg" />
+                Deactivate
+            </div>
+        </ng-container>
+        <ng-container *ngIf="isPending">
+            <div class="butt reject" (click)="openDialog('Reject Account')">
+                <img src="assets/icons/in-reject-red.svg" />
+                Reject
+            </div>
+            <div class="butt approve" (click)="approveAccount()">
+                <img src="assets/icons/in-approve-white.svg" />
+                Approve
+            </div>
+        </ng-container>
+         
+      </div>
+    </div>
+    <div class="details">
+        <mat-tab-group>
+            <mat-tab label="Personal Info" id="tabOne"> 
+                <div class="tab-content">
+                    <h5>{{userDetails?.user_role?.user_role_label}} personal and Address Information</h5>
+                    <div class="row">
+                     <div class="col-6">
+                        <div class="content">
+                            <div class="head__title">EMAIL</div>
+                            <div class="head__val"> {{userDetails?.email}} </div>
+                        </div>
+                        <div class="content">
+                            <div class="head__title">PHONE NUMBER</div>
+                            <div class="head__val">{{userDetails?.mobile_number }} </div>
+                        </div>
+                        <div class="content">
+                            <div class="head__title">MARITAL STATUS</div>
+                            <div class="head__val">{{userDetails?.marital_status_label}}</div>
+                        </div>
+                     </div>
+                    <div class="col-6">
+                        <div class="content">
+                            <div class="head__title">GENDER</div>
+                            <div class="head__val">{{userDetails?.gender }}</div>
+                        </div>
+                        <div class="content">
+                            <div class="head__title">DATE BIRTH</div>
+                            <div class="head__val">{{userDetails?.date_of_birth|date:'shortDate'}}</div>
+                        </div>
+                        <div class="content">
+                            <div class="head__title">Nickname</div>
+                            <div class="head__val">{{userDetails?.nick_name}}</div>
+                        </div>
+                    </div>
+                   
+                    </div>
+                    <div class="row">
+<div class="col-6">
+    <div class="content">
+        <div class="head__title">ADDRESS</div>
+        <div class="head__val">{{userDetails?.address }}</div>
+    </div>
+
+    <div class="content">
+        <div class="head__title">CITY</div>
+        <div class="head__val">{{userDetails?.city}}</div>
+    </div>
+
+</div>
+<div class="col-6">
+    <div class="content">
+        <div class="head__title">STATE</div>
+        <div class="head__val">{{userDetails?.state}}</div>
+    </div>
+    <div class="content">
+        <div class="head__title">COUNTRY</div>
+        <div class="head__val">{{userDetails?.country }}</div>
+    </div>
+
+    <!-- <div class="content">
+                            <div class="head__title">CITY</div>
+                            <div class="head__val">{{userDetails?.city}}</div>
+                        </div>
+                        <div class="content">
+                            <div class="head__title">STATE</div>
+                            <div class="head__val">{{userDetails?.state}}</div>
+                        </div> -->
+</div>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Employment Info">
+                <div class="tab-content">
+                    <h5>{{userDetails?.user_role?.user_role_label}} employment Information</h5>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="content">
+                                <div class="head__title">Name of Employer/Business</div>
+                                <div class="head__val">{{userDetails?.employment_info?.name}}</div>
+                            </div>
+                            <div class="content">
+                                <div class="head__title">Current position in the organization</div>
+                                <div class="head__val">{{userDetails?.employment_info?.current_position}}</div>
+                            </div>
+                            <div class="content">
+                                <div class="head__title">OFFICE ADDRESS</div>
+                                <div class="head__val">{{userDetails?.employment_info?.address }}</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="content">
+                                <div class="head__title">EMAIL</div>
+                                <div class="head__val">{{userDetails?.employment_info?.email}}</div>
+                            </div>
+                            <div class="content">
+                                <div class="head__title">PHONE NUMBER</div>
+                                <div class="head__val">{{userDetails?.employment_info?.mobile_number }}</div>
+                            </div>
+                            <!-- <div class="content">
+                                <div class="head__title">OFFICE ADDRESS</div>
+                                <div class="head__val">{{userDetails?.employment_info?.address }}</div>
+                            </div> -->
+                        </div>
+                      
+                    </div>
+                </div> 
+            </mat-tab>
+            <mat-tab label="Next of kin">
+                <div class="tab-content">
+                    <h5>{{userDetails?.user_role?.user_role_label}} next of kin Information</h5>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="content">
+                                <div class="head__title">Name</div>
+                                <div class="head__val">{{userDetails?.next_of_kin_info?.email}}</div>
+                            </div>
+                            <div class="content">
+                                <div class="head__title">GENDER</div>
+                                <div class="head__val">{{userDetails?.next_of_kin_info?.gender }}</div>
+                            </div>
+                            <div class="content">
+                                <div class="head__title">Relationship</div>
+                                <div class="head__val">{{userDetails?.next_of_kin_info?.relationship }}</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="content">
+                                <div class="head__title">EMAIL</div>
+                                <div class="head__val">{{userDetails?.next_of_kin_info?.email}}</div>
+                            </div>
+                            <div class="content">
+                                <div class="head__title">ADDRESS</div>
+                                <div class="head__val">{{userDetails?.next_of_kin_info?.address}}</div>
+                            </div>
+                            <div class="content">
+                                <div class="head__title">PHONE NUMBER</div>
+                                <div class="head__val">{{userDetails?.next_of_kin_info?.mobile_number}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </mat-tab>
+            <mat-tab label="Referees Information">
+                <div class="tab-content">
+                    <h5>{{userDetails?.user_role?.user_role_label}} referees Information</h5>
+                <div class="row" *ngFor="let refInfo of userDetails?.refrees_info">
+                    <div class="col-6">
+                        <div class="content">
+                            <div class="head__title">Name</div>
+                            <div class="head__val"> {{refInfo?.first_name}} {{refInfo?.last_name}} </div>
+                        </div>
+                        <div class="content">
+                            <div class="head__title">Relationship</div>
+                            <div class="head__val">{{refInfo?.relationship}}</div>
+                        </div>
+                        <div class="content">
+                            <div class="head__title">EMAIL</div>
+                            <div class="head__val">{{refInfo?.email}}</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="content">
+                            <div class="head__title">ADDRESS</div>
+                            <div class="head__val">{{refInfo?.address}}</div>
+                        </div>
+                        <div class="content">
+                            <div class="head__title">PHONE NUMBER</div>
+                            <div class="head__val">{{refInfo?.mobile_number}}</div>
+                        </div>
+                    </div>
+                </div>
+                </div> 
+            </mat-tab>
+            <mat-tab label="Document">
+                <div class="tab-content" style="background: transparent;">
+                    <h5>{{userDetails?.user_role?.user_role_label}} Document</h5>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="content single">
+                                <div class="head__title">Means of Identification</div>
+                                <div class="head__val">National ID card</div>
+                            </div>
+                            <div class="content single">
+                                <div class="head__title">ID Registration Number</div>
+                                <div class="head__val">NVMN4563FV</div>
+                            </div>
+                            <p class="idcard-title">ID card</p>
+                            <div class="document">
+                                <div class="left d-flex">
+                                    <div class="file">
+                                    <img src="assets/icons/in-document-blue.svg" />
+                                    </div>
+                                    <div class="fcontent">
+                                        <div class="name">Image 001.PDF</div>
+                                        <div class="date">Uploaded on 12 Jan 2023</div>
+                                    </div>
+                                </div>
+                                <div class="viewbtn">
+                                     View
+                                </div>
+                            </div>
+
+                            <p class="idcard-title">Passport photograph</p>
+                            <div class="document">
+                                <div class="left d-flex">
+                                    <div class="file">
+                                        <img src="assets/icons/in-document-blue.svg" />
+                                    </div>
+                                    <div class="fcontent">
+                                        <div class="name">Image 001.PDF</div>
+                                        <div class="date">Uploaded on 12 Jan 2023</div>
+                                    </div>
+                                </div>
+                                <div class="viewbtn">
+                                    View
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </mat-tab>
+        </mat-tab-group>
+    
+    </div>
+    </ng-container>
+    
+</div>
